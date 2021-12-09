@@ -6,11 +6,11 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  bionic-build:
+  focal-build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     container: 
-      image: pllee4/ubuntu-ci:18.04-gRPC
+      image: pllee4/ubuntu-ci:20.04-gRPC
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
