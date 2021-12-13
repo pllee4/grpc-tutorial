@@ -54,14 +54,14 @@ foreach(proto ${PROTO_FILES})
 
 endforeach(proto)
 
-add_executable(greeter_server src/greeter_server.cc ${ALL_PROTO_SRCS} ${ALL_GRPC_SRCS})
+add_executable(greeter_server src/simple/greeter_server.cc ${ALL_PROTO_SRCS} ${ALL_GRPC_SRCS})
 target_include_directories(greeter_server PUBLIC
   $<BUILD_INTERFACE:${PROTO_GEN_DIR}>
 	$<INSTALL_INTERFACE:include>	
     PRIVATE src)
 target_link_libraries(greeter_server ${_REFLECTION} ${_GRPC_GRPCPP} ${_PROTOBUF_LIBPROTOBUF})
 
-add_executable(greeter_client src/greeter_client.cc ${ALL_PROTO_SRCS} ${ALL_GRPC_SRCS})
+add_executable(greeter_client src/simple/greeter_client.cc ${ALL_PROTO_SRCS} ${ALL_GRPC_SRCS})
 target_include_directories(greeter_client PUBLIC
   $<BUILD_INTERFACE:${PROTO_GEN_DIR}>
 	$<INSTALL_INTERFACE:include>	
