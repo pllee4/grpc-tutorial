@@ -67,3 +67,17 @@ target_include_directories(greeter_client PUBLIC
 	$<INSTALL_INTERFACE:include>	
     PRIVATE src)
 target_link_libraries(greeter_client ${_REFLECTION} ${_GRPC_GRPCPP} ${_PROTOBUF_LIBPROTOBUF})
+
+add_executable(greeter_async_server src/async/greeter_async_server.cc ${ALL_PROTO_SRCS} ${ALL_GRPC_SRCS})
+target_include_directories(greeter_async_server PUBLIC
+  $<BUILD_INTERFACE:${PROTO_GEN_DIR}>
+	$<INSTALL_INTERFACE:include>	
+    PRIVATE src)
+target_link_libraries(greeter_async_server ${_REFLECTION} ${_GRPC_GRPCPP} ${_PROTOBUF_LIBPROTOBUF})
+
+add_executable(greeter_async_client src/async/greeter_async_client.cc ${ALL_PROTO_SRCS} ${ALL_GRPC_SRCS})
+target_include_directories(greeter_async_client PUBLIC
+  $<BUILD_INTERFACE:${PROTO_GEN_DIR}>
+	$<INSTALL_INTERFACE:include>	
+    PRIVATE src)
+target_link_libraries(greeter_async_client ${_REFLECTION} ${_GRPC_GRPCPP} ${_PROTOBUF_LIBPROTOBUF})
